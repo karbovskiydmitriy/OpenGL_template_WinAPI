@@ -1,3 +1,6 @@
+#ifndef __TEMPLATE_H__
+#define __TEMPLATE_H__
+
 #include <Windows.h>
 #include <gl\GL.h>
 #include <gl\GLU.h>
@@ -13,3 +16,5 @@ void main();
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 void Init();
 void Draw();
+
+#endif // __TEMPLATE_H__
