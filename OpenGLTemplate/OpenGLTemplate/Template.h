@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef __TEMPLATE_H__
 #define __TEMPLATE_H__
 
@@ -8,8 +10,8 @@
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
 
-#define CLASS_NAME "OpenGLTemplateClass"
-#define WS_CUSTOM (WS_VISIBLE | WS_POPUP | WS_MAXIMIZE)
+#define CLASS_NAME "Smoothing test"
+#define WS_CUSTOM WS_VISIBLE | WS_POPUP | WS_MAXIMIZE
 #define COLOR_DEPTH 24
 
 void main();

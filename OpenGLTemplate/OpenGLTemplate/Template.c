@@ -7,7 +7,7 @@ RECT rect;
 int clock;
 
 float fov = 60.0f;
-float zNear = 0.1f;
+float zNear = 0.0f;
 float zFar = 1000.0f;
 
 // TODO are to filled with data
@@ -24,9 +24,9 @@ WNDCLASSEX wndClass =
 PIXELFORMATDESCRIPTOR pfd =
 {
 	sizeof(PIXELFORMATDESCRIPTOR),
-        	1, PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER | PFD_DRAW_TO_WINDOW,
-        	PFD_TYPE_RGBA, COLOR_DEPTH, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, COLOR_DEPTH, 0, 0,
-        	PFD_MAIN_PLANE, 0, PFD_MAIN_PLANE, 0, 0
+        1, PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER | PFD_DRAW_TO_WINDOW,
+        PFD_TYPE_RGBA, COLOR_DEPTH, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, COLOR_DEPTH, 0, 0,
+        PFD_MAIN_PLANE, 0, PFD_MAIN_PLANE, 0, 0
 };
 
 void main()
@@ -53,11 +53,13 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			break;
 		}
-	case WM_DESTROY:
+	case WM_CLOSE:
 		PostQuitMessage(0);
+
 		return 0;
 	case WM_PAINT:
 		Draw();
+
 		return 0;
 	}
 
@@ -67,7 +69,7 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 void Init()
 {
 	GetClientRect(hMainWindow, &rect);
-	ShowCursor(false);
+	ShowCursor(0);
 
 	clock = GetTickCount();
 
