@@ -12,9 +12,14 @@ float zFar = 1000.0f;
 
 // TODO are to filled with data
 
-int verticesCount = 0;
-GLfloat *vertices;
-GLfloat *colors;
+int verticesCount;
+
+struct
+{
+	float red;
+	float green;
+	float blue;
+} backColor = { 0.1f, 0.1f, 0.6f };
 
 WNDCLASSEX wndClass =
 {
@@ -101,7 +106,7 @@ void Draw()
 		// TODO sth
 	}
 
-	glClearColor(0.1f, 0.1f, 0.6f, 1.0f);
+	glClearColor(backColor.red, backColor.green, backColor.blue, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -110,14 +115,11 @@ void Draw()
 	// TODO camera placement and other transformations
 
 	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_COLOR_ARRAY);
 
-	glVertexPointer(3, GL_FLOAT, 0, vertices); // vertices = GLfloat array in (x, y, z) form
-	glColorPointer(3, GL_FLOAT, 0, colors); // colors - GLfloat array in (r, g, b) form
-	glDrawArrays(GL_TRIANGLES, 0, verticesCount); // amount of vertices to draw
+	glVertexPointer(3, GL_FLOAT, 0, 0);
+	// glDrawArrays/glDrawElements
 
 	glDisableClientState(GL_VERTEX_ARRAY);
-	glDisableClientState(GL_COLOR_ARRAY);
 	
 	SwapBuffers(hdc);
 }
