@@ -7,7 +7,7 @@ RECT rect;
 int clock;
 
 float fov = 60.0f;
-float zNear = 0.0f;
+float zNear = 0.1f;
 float zFar = 1000.0f;
 
 // TODO are to filled with data
